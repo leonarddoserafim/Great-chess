@@ -4,6 +4,7 @@ import { StatusBar } from "expo-status-bar";
  
 import HomeScreen from "./screens/HomeScreen";
 import ChessScreen from "./screens/ChessScreen";
+import GrandScreen from "./screens/GrandScreen"
  
 const Stack = createNativeStackNavigator();
  
@@ -26,6 +27,11 @@ export default function App() {
           name="Chess"
           component={ChessScreen}
           options={{ title: "Xadrez" }}
+        />
+        <Stack.Screen
+          name="Grand"
+          component={GrandScreen}
+          options={{ title: "Grande" }}
         />
       </Stack.Navigator>
     </NavigationContainer>
