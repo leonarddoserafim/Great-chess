@@ -16,7 +16,18 @@ const GLYPH = {
   r: '\u265C',
   n: '\u265E',
   p: '\u265F',
-  s: '\u2694',
+  fz: '\u265B',
+};
+const LABEL = {
+  pk: 'Pk',
+  el: 'El',
+  li: 'Li',
+  bu: 'Bu',
+  wm: 'WM',
+  sc: 'Sc',
+  ca: 'Ca',
+  gi: 'Gi',
+  sm: 'SM',
 };
 
 // A grade tem 13 colunas de largura (11 + 1 extra de cada lado)
@@ -69,10 +80,12 @@ export default function BigChessScreen({ navigation }) {
                   {piece && (
                     <Text
                       style={[
-                        styles.piece,
+                        GLYPH[piece.type] ? styles.piece : styles.label,
                         piece.color === 'w' ? styles.white : styles.black,
                       ]}>
-                      {GLYPH[piece.type] + '\uFE0E'}
+                      {GLYPH[piece.type]
+                        ? GLYPH[piece.type] + '\uFE0E'
+                        : LABEL[piece.type]}
                     </Text>
                   )}
                 </Pressable>
